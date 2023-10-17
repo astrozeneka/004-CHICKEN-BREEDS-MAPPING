@@ -15,6 +15,6 @@ SEQ_LIST=(
 cd sequences
 for seq in "${SEQ_LIST[@]}"
 do
-  bwa index "sequences/${seq}.fasta"
+  bwa index "${seq}.fasta"
 done
 cd ..
