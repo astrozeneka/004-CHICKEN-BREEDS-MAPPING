@@ -22,6 +22,6 @@ do
   for genome in "${genomes[@]}"
   do
     echo "${genome}"
-    samtools view -F 4 "data/map/${seq}-${genome}.sam"
+    samtools view -F 4 "data/map/${seq}-${genome}.sam" > "data/only-map/${seq}-${genome}.sam"
   done
 done
