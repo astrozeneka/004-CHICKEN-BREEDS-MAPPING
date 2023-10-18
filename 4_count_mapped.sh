@@ -22,6 +22,7 @@ genomes=()
 while IFS= read -r genome; do
     genomes+=("$genome")
 done < genomes.txt
+echo "" > data/mapping-plain.tsv
 for seq in "${SEQ_LIST[@]}"
 do
   echo "${seq}"
@@ -29,7 +30,7 @@ do
   do
     echo "${genome}"
     count=$(samtools view -c "data/only-map/${seq}-${genome}.sam")
-    echo "${seq}  ${genome} ${count}"
-    exit
+    echo "${seq}  ${genome} ${count}" >> data/mapping-plain.tsv
+    
   done
 done
