@@ -8,8 +8,15 @@
 module purge
 module load SAMtools/1.9-intel-2019b
 SEQ_LIST=(
-  "LTR"
-  "LTR+Int+LTR"
+#  "LTR"
+#  "LTR+Int+LTR"
+  "ENS-1-x2"
+  "ENS-1-x3"
+  "ENS-1-x4"
+  "FlankL+LTR1"
+  "FlankL"
+  "FlankR"
+  "LTR+FlankR"
 )
 genomes=()
 while IFS= read -r genome; do
