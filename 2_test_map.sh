@@ -18,6 +18,7 @@ done < genomes.txt
 
 module purge
 module load SAMtools/1.9-intel-2019b
+module load BWA/0.7.17-intel-2019b
 
 for seq in "${SEQ_LIST[@]}"
 do
@@ -25,8 +26,9 @@ do
   for genome in "${genomes[@]}"
   do
     echo "${genome}"
-    echo bwa mem -t 96 \
+    bwa mem -t 96 \
+      "sequences/${seq}.fasta" \
       "${FQ_DIR}/${genome}_trimmed.fq" \
-      ">" "data/map/${genome}.sam"
+      > "data/map/${seq}-${genome}.sam"
   done
 done
