@@ -33,9 +33,14 @@ do
   for genome in "${genomes[@]}"
   do
     echo "${genome}"
-    bwa mem -t 96 \
-      "sequences/${seq}.fasta" \
-      "${FQ_DIR}/${genome}_trimmed.fq" \
-      > "data/map/${seq}-${genome}.sam"
+    output_file="data/map/${seq}-${genome}.sam"
+    if [ -f "$output_file" ]; then
+      echo "Skip"
+    else
+      bwa mem -t 96 \
+        "sequences/${seq}.fasta" \
+        "${FQ_DIR}/${genome}_trimmed.fq" \
+        > "data/map/${seq}-${genome}.sam"
+    fi
   done
 done
