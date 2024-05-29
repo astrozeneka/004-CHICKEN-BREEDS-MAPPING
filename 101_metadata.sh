@@ -8,7 +8,6 @@
 module load foss/2021b
 export PATH=${PATH}:/tarafs/data/home/hrasoara/edirect
 
-genome=SRR20726720
 genomes=()
 while IFS= read -r genome; do
     genomes+=("$genome")
